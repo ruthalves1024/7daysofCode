@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras</title>
+</head>
+<body>
+
+    <h1>Lista de Compras</h1>
+
+<script>
+const listaDeCompras = [];
+
+function adicionarItem() {
+    const resposta = prompt("Deseja adicionar uma comida na sua lista de compras? (sim/não)").toLowerCase();
+
+    if (resposta === "não") {
+        exibirListaDeCompras();
+        return;
+    }
+
+
+    if (listaDeCompras.length > 0) {
+        const removerItem = prompt("Deseja remover algum item da lista? (sim/não)").toLowerCase();
+        if (removerItem === "sim") {
+            exibirListaDeCompras();
+            const itemRemover = prompt("Qual item você deseja remover?");
+            removerDaLista(itemRemover);
+            adicionarItem();
+            return;
+        }
+    }
+
+    const comida = prompt("Qual comida deseja inserir?");
+    const categoria = prompt("Em qual categoria essa comida se encaixa? (frutas, laticínios, congelados, doces, etc.)");
+
+
+    listaDeCompras.push({ comida, categoria });
+
+    exibirListaDeCompras();
+    adicionarItem();
+}
+
+function exibirListaDeCompras() {
+    console.log("\nLista de compras:");
+
+    if (listaDeCompras.length === 0) {
+        console.log("A lista de compras está vazia.");
+    } else {
+        for (const item of listaDeCompras) {
+            console.log(`    ${item.categoria}: ${item.comida}`);
+        }
+    }
+}
+
+function removerDaLista(itemRemover) {
+    const index = listaDeCompras.findIndex(item => item.comida.toLowerCase() === itemRemover.toLowerCase());
+
+    if (index !== -1) {
+        const removido = listaDeCompras.splice(index, 1);
+        console.log(`\n"${removido[0].comida}" foi removido da lista de compras.`);
+    } else {
+        console.log(`\nNão foi possível encontrar "${itemRemover}" na lista de compras.`);
+    }
+}
+
+adicionarItem();
+
+</script>
+
+</body>
+</html>

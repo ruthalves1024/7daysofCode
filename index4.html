@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Adivinhação</title>
+</head>
+<body>
+
+<script>
+    var numeroSecreto = Math.floor(Math.random() * 11);
+    var tentativasRestantes = 3;
+
+    alert("Olá, seja bem-vindo ao jogo de adivinhação de números");
+
+    while (tentativasRestantes > 0) {
+        var adivinhar = parseInt(prompt("Você pode tentar adivinhar o número, escolha um entre 0 e 10: "));
+
+        if (adivinhar === numeroSecreto) {
+            alert("Oba! Você acertou!");
+            break;
+        } else {
+            tentativasRestantes--;
+
+            if (tentativasRestantes > 0) {
+                alert("Ops, está incorreto. Você ainda tem " + tentativasRestantes + " tentativas restantes.");
+            } else {
+                alert("Não foi dessa vez! O número era " + numeroSecreto + ".");
+                break;
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras</title>
+</head>
+<body>
+
+    <h1>Lista de Compras</h1>
+
+    <script>
+        const listaDeCompras = {};
+
+        function adicionarItem() {
+            const resposta = prompt("Deseja adicionar uma comida na sua lista de compras? (sim/não)").toLowerCase();
+
+            if (resposta === "não") {
+                exibirListaDeCompras();
+                return;
+            }
+
+            const comida = prompt("Qual comida deseja inserir?");
+            const categoria = prompt("Em qual categoria essa comida se encaixa? (frutas, laticínios, congelados, doces, etc.)");
+
+           
+            if (!listaDeCompras[categoria]) {
+                listaDeCompras[categoria] = [];
+            }
+            listaDeCompras[categoria].push(comida);
+
+            adicionarItem();
+        }
+
+        function exibirListaDeCompras() {
+            console.log("\nLista de compras:");
+
+            for (const categoria in listaDeCompras) {
+                if (listaDeCompras.hasOwnProperty(categoria)) {
+                    const itens = listaDeCompras[categoria].join(", ");
+                    console.log(`    ${categoria}: ${itens}`);
+                }
+            }
+        }
+
+    
+        adicionarItem();
+    </script>
+
+</body>
+</html>

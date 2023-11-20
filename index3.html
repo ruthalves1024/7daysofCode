@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Escolha de Área</title>
+</head>
+<body>
+
+<script>
+    alert("Olá, Bem Vindo! Este é um jogo criado para que você possa escolher a área de programação que deseja desenvolver.");
+
+    var area = prompt("Qual área você deseja seguir, Front-End ou Back-End?");
+
+    if (area === "Front-End") {
+        var framework = prompt("Você deseja aprender React ou Vue?");
+
+        if (framework === "React") {
+            alert("Excelente escolha, o React é utilizado para desenvolver interfaces. Aproveite!");
+        } else if (framework === "Vue") {
+            alert("Excelente escolha, o Vue é utilizado para criar interfaces de usuário no Javascript.");
+        } else {
+            alert("Opção inválida");
+        }
+
+    } else if (area === "Back-End") {
+        var linguagem = prompt("Você deseja aprender C# ou Java?");
+        if (linguagem === "C#") {
+            alert("Excelente escolha, o C# é uma linguagem de programação para desenvolver aplicativos de forma moderna e eficiente.");
+        } else if (linguagem === "Java") {
+            alert("Excelente escolha, o Java é uma linguagem popular, muito utilizada pelos desenvolvedores.");
+        } else {
+            alert("Opção inválida");
+        }
+    }
+
+    var especializar = prompt("Agora que você já escolheu sua área, deseja continuar se especializando na mesma ou se tornar FullStack?");
+
+    if (especializar === "Especializar na área") {
+        alert("Ok, continue estudando e logo poderá se tornar um profissional.");
+    } else if (especializar === "FullStack") {
+        alert("Perfeito, agora você poderá trabalhar tanto Front-End quanto Back-End.");
+    } else {
+        alert("Opção inválida");
+    }
+
+    var tecnologias = [];
+    var continuar = "Sim";
+
+    while (continuar === "Sim") {
+        var tecnologia = prompt("Agora, escolha quais dessas tecnologias você gostaria de aprender?");
+        tecnologias.push(tecnologia);
+        continuar = prompt("Além dessa, você gostaria de aprender alguma outra? (Não/Sim)");
+    }
+
+    alert("Aqui estão as tecnologias que você gostaria de aprender:\n" + "- " + tecnologias.join("\n- "));
+    alert("Oba, parabéns! Agora você pode aprender e desenvolver de acordo com suas escolhas. Obrigado por utilizar nossos serviços.");
+
+</script>
+
+</body>
+</html>
